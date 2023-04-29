@@ -1,3 +1,4 @@
+@import "../../../../assets/colors.scss";
 .navbar-container {
   display: flex;
   flex-direction: row;
@@ -7,7 +8,7 @@
     box-shadow: 0 0px 12px rgba(0, 0, 0, 0.7);
   }
   .active {
-    background-color: #e91e63;
+    background-color: $colorAcent;
     color: #fff;
   }
 }
