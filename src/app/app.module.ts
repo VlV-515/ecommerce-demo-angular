@@ -8,13 +8,15 @@ import { MaterialModule } from './core/material.module';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule,
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
