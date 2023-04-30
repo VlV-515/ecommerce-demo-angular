@@ -1,4 +1,23 @@
-<mat-toolbar color="primary" class="navbar-container">
-  <a routerLink="/home" mat-button routerLinkActive="active">Home</a>
-  <a routerLink="/cart" mat-button routerLinkActive="active">Cart</a>
-</mat-toolbar>
+<header class="navbar-container row justify-content-between pt-4">
+  <div class="col-md-4">
+    <p class="fw-semibold fs-4">VlV | eCommerce</p>
+  </div>
+  <div class="col-md-4 text-center">
+    <a
+      mat-button
+      routerLink="/home"
+      routerLinkActive="link-active"
+      class="me-2"
+    >
+      Home
+    </a>
+    <a mat-button routerLink="/products" routerLinkActive="link-active">
+      Products
+    </a>
+  </div>
+  <div class="col-md-4 text-end">
+    <button mat-button mat-mini-fab color="primary" (click)="btnCart()">
+      <mat-icon class="mat-18">shopping_cart</mat-icon>
+    </button>
+  </div>
+</header>
