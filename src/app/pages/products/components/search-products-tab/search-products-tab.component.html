@@ -1,0 +1,25 @@
+<main class="row justify-content-center justify-content-sm-between w-100">
+  <section class="col-12 col-sm-6 col-lg-7">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label>Search product</mat-label>
+      <input matInput type="text" placeholder="Search everything..." />
+      <button matSuffix mat-icon-button aria-label="Clear" matTooltip="Clear">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </section>
+  <section class="col-12 col-sm-5 col-md-4 col-lg-3 text-end">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-select value="">
+        <mat-option selected value="">All categories</mat-option>
+        <mat-option
+          *ngFor="let category of arrCategories$ | async"
+          [value]="category"
+        >
+          {{ category | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+</main>
