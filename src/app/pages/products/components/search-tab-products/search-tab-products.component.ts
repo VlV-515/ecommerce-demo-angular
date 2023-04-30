@@ -4,11 +4,11 @@ import { dataMockAllCategories } from '../../assets/dataMock';
 import { ResponseCategoriesType } from '../../interfaces';
 
 @Component({
-  selector: 'app-search-products-tab',
-  templateUrl: './search-products-tab.component.html',
+  selector: 'app-search-tab-products',
+  templateUrl: './search-tab-products.component.html',
   styleUrls: [],
 })
-export class SearchProductsTabComponent {
+export class SearchTabProductsComponent {
   arrCategories$ = new Observable<ResponseCategoriesType>();
 
   constructor() {

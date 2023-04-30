@@ -7,6 +7,6 @@ import { ProductModel } from '../../interfaces';
   styleUrls: ['./card-product.component.scss'],
 })
 export class CardProductComponent {
-  @Input() product!: ProductModel;
+  @Input() arrProducts: ProductModel[] = [];
   constructor() {}
 }

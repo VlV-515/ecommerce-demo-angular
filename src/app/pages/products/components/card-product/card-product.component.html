@@ -1,41 +1,47 @@
-<mat-card class="d-flex flex-column shadow p-5 w-100 h-100 content-card">
-  <img
-    matCardImage
-    class="flex-grow-1 w-100 img-card"
-    matTooltip="Show product"
-    matTooltipPosition="below"
-    matTooltipTouchGestures="on"
-    [src]="product.images[0]"
-    [alt]="product.title"
-  />
-  <mat-card-content
-    class="content-product"
-    matTooltip="Show product"
-    matTooltipPosition="above"
-  >
-    <p class="h5">
-      {{ product.title | titlecase }}
-    </p>
-    <p>
-      {{ product.description }}
-    </p>
-    <p class="text-end">
-      <span class="text-through">{{ product.price | currency }}</span>
-      -
-      {{
-        product.price - product.price * (product.discountPercentage / 100)
-          | currency
-      }}
-    </p>
-  </mat-card-content>
-  <mat-card-footer class="text-center">
-    <button
-      mat-button
-      mat-raised-button
-      color="primary"
-      matTooltip="Add to cart"
-    >
-      <mat-icon>add_shopping_cart</mat-icon>
-    </button>
-  </mat-card-footer>
-</mat-card>
+<section class="row justify-content-center">
+  <ng-container *ngFor="let product of arrProducts">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mt-5">
+      <mat-card class="d-flex flex-column shadow p-5 w-100 h-100 content-card">
+        <img
+          matCardImage
+          class="flex-grow-1 w-100 img-card"
+          matTooltip="Show product"
+          matTooltipPosition="below"
+          matTooltipTouchGestures="on"
+          [src]="product.images[0]"
+          [alt]="product.title"
+        />
+        <mat-card-content
+          class="content-product"
+          matTooltip="Show product"
+          matTooltipPosition="above"
+        >
+          <p class="h5">
+            {{ product.title | titlecase }}
+          </p>
+          <p>
+            {{ product.description }}
+          </p>
+          <p class="text-end">
+            <span class="text-through">{{ product.price | currency }}</span>
+            -
+            {{
+              product.price - product.price * (product.discountPercentage / 100)
+                | currency
+            }}
+          </p>
+        </mat-card-content>
+        <mat-card-footer class="text-center">
+          <button
+            mat-button
+            mat-raised-button
+            color="primary"
+            matTooltip="Add to cart"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </ng-container>
+</section>
