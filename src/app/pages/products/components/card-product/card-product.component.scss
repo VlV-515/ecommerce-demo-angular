@@ -4,3 +4,7 @@
 .img-card {
   object-fit: contain;
 }
+.img-card,
+.content-product {
+  cursor: pointer;
+}
