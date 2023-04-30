@@ -1,0 +1,30 @@
+<mat-card class="d-flex flex-column shadow p-5 w-100 h-100">
+          <img
+            matCardImage
+            [src]="product.images[0]"
+            class="flex-grow-1 w-100 img-card"
+          />
+          <mat-card-content>
+            <p class="h6">
+              {{ product.description }}
+            </p>
+            <p class="text-end">
+              <span class="text-through">{{ product.price | currency }}</span>
+              -
+              {{
+                product.price -
+                  product.price * (product.discountPercentage / 100) | currency
+              }}
+            </p>
+          </mat-card-content>
+          <mat-card-footer class="text-center">
+            <button
+              mat-button
+              mat-raised-button
+              color="primary"
+              matTooltip="Add to cart"
+            >
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </mat-card-footer>
+        </mat-card>
