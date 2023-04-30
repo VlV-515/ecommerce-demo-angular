@@ -1,11 +1,12 @@
 <main class="container mt-5">
   <h1>List of products</h1>
   <app-search-products-tab></app-search-products-tab>
-  <div class="row justify-content-center">
+  <section class="row justify-content-center">
     <ng-container *ngFor="let product of (arrProducts$ | async)?.products">
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mt-5">
         <app-card-product [product]="product"></app-card-product>
       </div>
     </ng-container>
-  </div>
+  </section>
+  <app-paginator-products ></app-paginator-products>
 </main>
