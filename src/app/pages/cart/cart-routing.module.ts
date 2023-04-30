@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexCartComponent } from './index-cart/index-cart.component';
+import { IndexCartComponent } from './components/index-cart/index-cart.component';
 
 const routes: Routes = [
   {
