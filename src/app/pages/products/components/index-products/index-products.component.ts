@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseProductsModel } from '../../interfaces';
+import { PaginatorModel, ResponseProductsModel } from '../../interfaces';
 import { Observable, of } from 'rxjs';
 import { dataMockAllProducts } from '../../assets/dataMock';
 
@@ -10,6 +10,11 @@ import { dataMockAllProducts } from '../../assets/dataMock';
 })
 export class IndexProductsComponent implements OnInit {
   arrProducts$ = new Observable<ResponseProductsModel>();
+  infoPaginator: PaginatorModel = {
+    currentPage: 1,
+    limit: 10,
+    total: 59,
+  };
   constructor() {
     this.arrProducts$ = of(dataMockAllProducts);
   }

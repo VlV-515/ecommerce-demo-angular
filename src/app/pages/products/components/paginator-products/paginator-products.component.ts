@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PaginatorModel } from '../../interfaces';
 
 @Component({
   selector: 'app-paginator-products',
@@ -6,5 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./paginator-products.component.scss'],
 })
 export class PaginatorProductsComponent {
+  @Input() infoPaginator!: PaginatorModel;
   constructor() {}
+  public changePage(numPage: number): void {
+    this.infoPaginator.currentPage = numPage;
+  }
 }
