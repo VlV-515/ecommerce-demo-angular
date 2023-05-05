@@ -1,8 +1,6 @@
 <main class="container mt-5">
   <h1>List of products</h1>
   <app-search-tab-products></app-search-tab-products>
-  <app-card-product
-    [arrProducts]="(arrProducts$ | async)?.products || []"
-  ></app-card-product>
-  <app-paginator-products [infoPaginator]="infoPaginator"></app-paginator-products>
+  <app-card-product></app-card-product>
+  <app-paginator-products></app-paginator-products>
 </main>

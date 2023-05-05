@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductModel } from '../../interfaces';
+import { ApiProductsService } from '../../services/api-products.service';
 
 @Component({
   selector: 'app-card-product',
@@ -7,6 +8,8 @@ import { ProductModel } from '../../interfaces';
   styleUrls: ['./card-product.component.scss'],
 })
 export class CardProductComponent {
-  @Input() arrProducts: ProductModel[] = [];
-  constructor() {}
+  arrProducts$: any;
+  constructor(private readonly apiProductsSvc: ApiProductsService) {
+    this.arrProducts$ = this.apiProductsSvc.getArrProducts();
+  }
 }

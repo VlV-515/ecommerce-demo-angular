@@ -1,103 +1,103 @@
 <section class="row justify-content-center my-5">
   <nav aria-label="Page navigation" class="col-auto">
     <ul class="pagination">
-      <li class="page-item" *ngIf="infoPaginator.currentPage !== 1">
+      <li class="page-item" *ngIf="refPaginador.currentPage !== 1">
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage - 1)"
+          (click)="changePage(refPaginador.currentPage - 1)"
         >
           Anterior
         </button>
       </li>
-      <li class="page-item" *ngIf="infoPaginator.currentPage > 2">
+      <li class="page-item" *ngIf="refPaginador.currentPage > 2">
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage - 2)"
+          (click)="changePage(refPaginador.currentPage - 2)"
         >
-          {{ infoPaginator.currentPage - 2 }}
+          {{ refPaginador.currentPage - 2 }}
         </button>
       </li>
-      <li class="page-item" *ngIf="infoPaginator.currentPage > 1">
+      <li class="page-item" *ngIf="refPaginador.currentPage > 1">
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage - 1)"
+          (click)="changePage(refPaginador.currentPage - 1)"
         >
-          {{ infoPaginator.currentPage - 1 }}
+          {{ refPaginador.currentPage - 1 }}
         </button>
       </li>
 
       <li class="page-item active">
-        <button class="page-link">{{ infoPaginator.currentPage }}</button>
+        <button class="page-link">{{ refPaginador.currentPage }}</button>
       </li>
       <li
         class="page-item"
         *ngIf="
-          (infoPaginator.currentPage + 1) * infoPaginator.limit <
-          infoPaginator.total
+          (refPaginador.currentPage + 1) * refPaginador.limit <
+          refPaginador.total
         "
       >
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage + 1)"
+          (click)="changePage(refPaginador.currentPage + 1)"
         >
-          {{ infoPaginator.currentPage + 1 }}
+          {{ refPaginador.currentPage + 1 }}
         </button>
       </li>
       <li
         class="page-item"
         *ngIf="
-          (infoPaginator.currentPage + 2) * infoPaginator.limit <
-          infoPaginator.total
+          (refPaginador.currentPage + 2) * refPaginador.limit <
+          refPaginador.total
         "
       >
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage + 2)"
+          (click)="changePage(refPaginador.currentPage + 2)"
         >
-          {{ infoPaginator.currentPage + 2 }}
+          {{ refPaginador.currentPage + 2 }}
         </button>
       </li>
 
       <li
         class="page-item"
         *ngIf="
-          infoPaginator.currentPage <= 2 &&
-          (infoPaginator.currentPage + 3) * infoPaginator.limit <
-            infoPaginator.total
+          refPaginador.currentPage <= 2 &&
+          (refPaginador.currentPage + 2) * refPaginador.limit <
+            refPaginador.total
         "
       >
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage + 3)"
+          (click)="changePage(refPaginador.currentPage + 3)"
         >
-          {{ infoPaginator.currentPage + 3 }}
+          {{ refPaginador.currentPage + 3 }}
         </button>
       </li>
       <li
         class="page-item"
         *ngIf="
-          infoPaginator.currentPage <= 1 &&
-          (infoPaginator.currentPage + 4) * infoPaginator.limit <
-            infoPaginator.total
+          refPaginador.currentPage <= 1 &&
+          (refPaginador.currentPage + 3) * refPaginador.limit <
+            refPaginador.total
         "
       >
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage + 4)"
+          (click)="changePage(refPaginador.currentPage + 4)"
         >
-          {{ infoPaginator.currentPage + 4 }}
+          {{ refPaginador.currentPage + 4 }}
         </button>
       </li>
       <li
         class="page-item"
         *ngIf="
-          (infoPaginator.currentPage + 1) * infoPaginator.limit <
-          infoPaginator.total
+          (refPaginador.currentPage + 1) * refPaginador.limit <
+          refPaginador.total
         "
       >
         <button
           class="page-link text-dark"
-          (click)="changePage(infoPaginator.currentPage + 1)"
+          (click)="changePage(refPaginador.currentPage + 1)"
         >
           Siguiente
         </button>

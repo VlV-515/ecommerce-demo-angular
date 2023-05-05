@@ -1,5 +1,5 @@
 <section class="row justify-content-center">
-  <ng-container *ngFor="let product of arrProducts">
+  <ng-container *ngFor="let product of arrProducts$ | async">
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mt-5">
       <mat-card class="d-flex flex-column shadow p-5 w-100 h-100 content-card">
         <img
