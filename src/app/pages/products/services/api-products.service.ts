@@ -29,6 +29,11 @@ export class ApiProductsService {
   public getArrCategories(): Observable<ResponseCategoriesType> {
     return this.arrcategories$.asObservable();
   }
+  public changeSearch(search: string): void {
+    this.infoPaginator.currentPage = 1;
+    if (search === '') return this.getAllProducts();
+    this.getproductsBySearch(search);
+  }
   public changeCategory(category: string): void {
     this.infoPaginator.currentPage = 1;
     if (category === '') return this.getAllProducts();
@@ -60,6 +65,19 @@ export class ApiProductsService {
     this.http
       .get<ResponseCategoriesType>(url)
       .pipe(tap((res) => this.arrcategories$.next(res)))
+      .subscribe();
+  }
+
+  private getproductsBySearch(search: string): void {
+    const url = `https://dummyjson.com/products/search?q=${search}`;
+    this.http
+      .get<ResponseProductsModel>(url)
+      .pipe(
+        tap((res) => {
+          this.arrProducts$.next(res.products || []);
+          this.infoPaginator.total = res.total;
+        })
+      )
       .subscribe();
   }
 

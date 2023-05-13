@@ -7,6 +7,7 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { SearchTabProductsComponent } from './components/search-tab-products/search-tab-products.component';
 import { PaginatorProductsComponent } from './components/paginator-products/paginator-products.component';
 import { TableProductsComponent } from './components/table-products/table-products.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,12 @@ import { TableProductsComponent } from './components/table-products/table-produc
     PaginatorProductsComponent,
     TableProductsComponent,
   ],
-  imports: [CommonModule, ProductsRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ProductsModule {}

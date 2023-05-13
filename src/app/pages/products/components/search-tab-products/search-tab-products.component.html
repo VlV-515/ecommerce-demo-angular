@@ -3,8 +3,20 @@
     <mat-form-field appearance="outline" class="w-100">
       <mat-icon matPrefix>search</mat-icon>
       <mat-label>Search product</mat-label>
-      <input matInput type="text" placeholder="Search everything..." />
-      <button matSuffix mat-icon-button aria-label="Clear" matTooltip="Clear">
+      <input
+        matInput
+        type="text"
+        placeholder="Search everything..."
+        [formControl]="inputSearch"
+      />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        matTooltip="Clear"
+        *ngIf="inputSearch.value !== ''"
+        (click)="inputSearch.setValue('')"
+      >
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
