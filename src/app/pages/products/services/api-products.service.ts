@@ -6,7 +6,7 @@ import {
   ResponseCategoriesType,
   ResponseProductsModel,
 } from '../interfaces';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, takeUntil, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,11 +17,16 @@ export class ApiProductsService {
     limit: 10,
     total: 0,
   };
+  private destroySub$ = new Subject<void>();
   private arrProducts$ = new BehaviorSubject<ProductModel[]>([]);
   private arrcategories$ = new BehaviorSubject<ResponseCategoriesType>([]);
   constructor(private readonly http: HttpClient) {
     this.getAllProducts();
     this.getAllCategories();
+  }
+  public destroySubscriptions(): void {
+    this.destroySub$.next();
+    this.destroySub$.complete();
   }
   public getArrProducts(): Observable<ProductModel[]> {
     return this.arrProducts$.asObservable();
@@ -52,6 +57,7 @@ export class ApiProductsService {
     this.http
       .get<ResponseProductsModel>(url, { params })
       .pipe(
+        takeUntil(this.destroySub$),
         tap((res) => {
           this.arrProducts$.next(res.products || []);
           this.infoPaginator.total = res.total;
@@ -64,7 +70,10 @@ export class ApiProductsService {
     const url = 'https://dummyjson.com/products/categories';
     this.http
       .get<ResponseCategoriesType>(url)
-      .pipe(tap((res) => this.arrcategories$.next(res)))
+      .pipe(
+        takeUntil(this.destroySub$),
+        tap((res) => this.arrcategories$.next(res))
+      )
       .subscribe();
   }
 
@@ -73,6 +82,7 @@ export class ApiProductsService {
     this.http
       .get<ResponseProductsModel>(url)
       .pipe(
+        takeUntil(this.destroySub$),
         tap((res) => {
           this.arrProducts$.next(res.products || []);
           this.infoPaginator.total = res.total;
