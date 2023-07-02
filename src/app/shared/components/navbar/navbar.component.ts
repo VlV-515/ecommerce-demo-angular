@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCartComponent } from '../modal-cart/modal-cart.component';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  constructor(private readonly dialog: MatDialog) {}
   public btnCart(): void {
-    alert('Cart');
+
+    this.dialog.open(ModalCartComponent, {
+      maxWidth: '50vw',
+      maxHeight: '80vh',
+    });
   }
 }

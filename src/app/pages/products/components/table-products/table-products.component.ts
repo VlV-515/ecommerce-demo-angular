@@ -19,8 +19,8 @@ export class TableProductsComponent {
     this.arrProducts$ = this.apiProductsSvc.getArrProducts();
   }
   public addCart(product: ProductModel, inputValue: any): void {
-    const objProducto: CartModel = product;
+    const objProducto: Partial<CartModel> = product;
     objProducto.quantity = inputValue;
-    this.cartSvc.addProductToCart(objProducto);
+    this.cartSvc.addProductToCart(objProducto as CartModel);
   }
 }

@@ -1,0 +1,44 @@
+<div class="modal-cart">
+  <mat-card>
+    <mat-card-header class="custom-header">
+      <div class="header-left">
+        <mat-card-title>Shopping Card</mat-card-title>
+      </div>
+      <div class="header-right">
+        <button mat-icon-button (click)="dialogRef.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="container-products">
+      <ng-container *ngFor="let product of arrCart$ | async">
+        <div class="product mat-elevation-z8">
+          <div class="image">
+            <img [src]="product.thumbnail" [alt]="product.title" />
+          </div>
+          <div class="details">
+            <h4>{{ product.title | titlecase }}</h4>
+            <h5>Quantity: {{ product.quantity }}</h5>
+            <p>
+              <span class="text-through">{{ product.price | currency }}</span>
+              -
+              {{
+                product.price -
+                  product.price * (product.discountPercentage / 100) | currency
+              }}
+              <button
+                mat-icon-button
+                color="warn"
+                matTooltip="Delete product"
+                (click)="removeProduct(product)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </p>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
