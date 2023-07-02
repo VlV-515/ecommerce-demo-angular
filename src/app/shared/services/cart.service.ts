@@ -9,7 +9,7 @@ import * as toastr from 'toastr';
 export class CartService {
   private arrCart$ = new BehaviorSubject<CartModel[]>([]);
   constructor() {}
-  public getArrCart(): Observable<CartModel[]> {
+  public getArrCart$(): Observable<CartModel[]> {
     return this.arrCart$.asObservable();
   }
   public addProductToCart(product: CartModel): void {
@@ -34,5 +34,8 @@ export class CartService {
     toastr.success('Product deleted from cart successfully.', undefined, {
       positionClass: 'toast-bottom-right',
     });
+  }
+  public getLengthArrCart(): number {
+    return this.arrCart$.getValue().length;
   }
 }

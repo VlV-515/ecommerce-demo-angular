@@ -15,7 +15,7 @@ export class ModalCartComponent {
     public readonly dialogRef: MatDialogRef<ModalCartComponent>,
     private readonly cartSvc: CartService
   ) {
-    this.arrCart$ = this.cartSvc.getArrCart();
+    this.arrCart$ = this.cartSvc.getArrCart$();
   }
 
   public removeProduct(product: CartModel): void {
