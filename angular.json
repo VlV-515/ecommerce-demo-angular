@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecommerce-demo-angular": {
+    "ecommerce-vlv": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
