@@ -18,7 +18,7 @@ The E-commerce website project was developed to practice and demonstrate various
 
 ## Demo
 
-A live demo of the E-commerce website is available at [Demo Link](https://www.example.com).
+A live demo of the E-commerce website is available at [Demo Link](https://ecommerce-vlv.netlify.app/home).
 
 ## License
 
